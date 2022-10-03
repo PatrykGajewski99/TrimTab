@@ -97,16 +97,6 @@ return [
 
     'fallback_locale' => 'en',
 
-    'providers' => [
-        /*
-        * Package Service Providers...
-        */
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-    ],
-    'aliases' => [
-    'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-],
-
     /*
     |--------------------------------------------------------------------------
     | Faker Locale
