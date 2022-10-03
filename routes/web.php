@@ -26,4 +26,4 @@ require __DIR__.'/auth.php';
 
 Route::post('/dashboard',[UserController::class,'readXML'])->name('file.upload');
 
-Route::get('/adminDashboard',[AdminController::class,'read'])->middleware(['auth', 'verified'])->name('show.users');
+Route::get('/adminDashboard',[AdminController::class,'read'])->middleware('admin.privilege')->name('show.users');
