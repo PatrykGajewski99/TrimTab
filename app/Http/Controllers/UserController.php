@@ -28,7 +28,7 @@ class UserController extends Controller
        }
         $userID=auth()->user()->id;
         User::whereId($userID)->update($personData);
-        return back()->with('success','Person detailes updated successfully');
+       return redirect()->back()->with(['message' => 'Person detailes updated successfully']);
    }
 
 }
