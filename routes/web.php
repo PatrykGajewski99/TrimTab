@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::post('/dashboard',[UserController::class,'readXML'])->name('file.upload');
+
+Route::get('/adminDashboard',[AdminController::class,'read'])->middleware(['auth', 'verified'])->name('show.users');

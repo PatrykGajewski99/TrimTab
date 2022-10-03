@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function index() {
-
-        return view('dashboard');
-    }
    public function readXML(Request $request)
    {
        $file=$request->file('file');
