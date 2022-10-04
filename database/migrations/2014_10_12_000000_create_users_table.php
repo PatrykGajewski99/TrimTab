@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email',60)->unique();
             $table->string('phone',20)->unique();
             $table->string('password');
-            $table->string('permission',5);
+            $table->enum('permission',['admin','user']);
             $table->timestamps();
         });
     }
