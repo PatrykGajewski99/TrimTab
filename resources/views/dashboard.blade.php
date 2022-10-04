@@ -11,6 +11,10 @@
                 <div class="alert alert-info" style="color:green">
                     {{ session('message') }}
                 </div>
+            @else
+                <div class="alert alert-info" style="color:red">
+                    {{ session('message_error') }}
+                </div>
             @endif
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="mt-4">
@@ -32,6 +36,7 @@
                 <div class="mt-4">
                     <form method="POST" action="{{ route('file.upload') }}" enctype="multipart/form-data" name="file">
                         @csrf
+                        @method('PATCH')
                         <div>
                             <input type="file" id="file" name="file" accept=".xml" class="btn btn-primary"></input>
                         </div>

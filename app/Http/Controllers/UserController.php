@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mockery\Exception;
 
 class UserController extends Controller
 {
@@ -23,8 +24,20 @@ class UserController extends Controller
            $personData=array("name" => $person->name , "address" => $person->address , "phone" => $person->phone);
        }
         $userID=auth()->user()->id;
-        User::whereId($userID)->update($personData);
-       return redirect()->back()->with(['message' => 'Person detailes updated successfully']);
+
+       try{
+
+           User::whereId($userID)->update($personData);
+           return redirect()->back()->with(['message' => 'Person detailes updated successfully']);
+
+       }catch(\Illuminate\Database\QueryException $ex){
+
+           return redirect()->back()->with(['message_error' => 'Cannot execute query. Phone number is not unique.',]);
+       }
+
+
+
+
    }
 
 }

@@ -20,10 +20,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'user.privilege'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
-Route::post('/dashboard',[UserController::class,'readXML'])->name('file.upload');
+Route::patch('/dashboard',[UserController::class,'readXML'])->middleware(['auth', 'user.privilege'])->name('file.upload');
 
-Route::get('/adminDashboard',[AdminController::class,'read'])->middleware('admin.privilege')->name('show.users');
+Route::get('/adminDashboard',[AdminController::class,'read'])->middleware(['auth', 'admin.privilege'])->name('show.users');
