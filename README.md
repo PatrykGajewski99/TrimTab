@@ -10,4 +10,7 @@ Hello everyone. Mini Platform (recruitment task) is an application was created s
 
 5.If you wanna look for admin functions you can change the privilege in the database "user" => "admin". In the next step, you have to log out and log in again.
 
+6. Sceleton of .xml file to change user data -> [test.zip](https://github.com/PatrykGajewski99/TrimTab/files/9723547/test.zip)
+
+
 I will be very grateful for every suggestion about my code. Thank you in advance. If you wanna read more about my application , I put here my portfolio -> https://pgajewski.pl/
